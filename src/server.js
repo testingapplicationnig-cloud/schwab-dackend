@@ -224,6 +224,7 @@ socketService.init(io);
 async function runMigrations() {
   const alterMigrations = [
     `ALTER TABLE users ADD COLUMN IF NOT EXISTS username VARCHAR(100) UNIQUE DEFAULT NULL`,
+    `ALTER TABLE users ADD COLUMN IF NOT EXISTS is_verified TINYINT(1) NOT NULL DEFAULT 0`,
     `ALTER TABLE users ADD COLUMN IF NOT EXISTS failed_login_attempts INT NOT NULL DEFAULT 0`,
     `ALTER TABLE users ADD COLUMN IF NOT EXISTS locked_until DATETIME DEFAULT NULL`,
     `ALTER TABLE users ADD COLUMN IF NOT EXISTS reset_token VARCHAR(255) DEFAULT NULL`,
